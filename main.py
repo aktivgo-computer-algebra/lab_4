@@ -20,7 +20,7 @@ def get_word_frequency(text: str) -> dict:
         result[s] = result[s] + 1
 
     for key in result.keys():
-        result[key] = float(result[key]) / float(length)
+        result[key] = round(float(result[key]) / float(length), 3)
 
     return result
 
