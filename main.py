@@ -25,35 +25,7 @@ def get_word_frequency(text: str) -> dict:
     return result
 
 
-def decode(text: str) -> str:
-    frequency = get_word_frequency(text)
-
-    print(frequency)
-
-    result = ""
-
-    for s in text:
-        frq = frequency[s]
-
-        prev_key = '_'
-
-        for key in frequency_russian.keys():
-            if frequency_russian[key] <= frq:
-                if abs(frq - frequency_russian[prev_key]) >= abs(frq - frequency_russian[key]):
-                    result += key
-                else:
-                    if prev_key == '':
-                        result += key
-                    else:
-                        result += prev_key
-                break
-
-            prev_key = key
-
-    return result
-
-
 if __name__ == '__main__':
     text = input("input text: ").lower()
 
-    print(decode(text))
+    print(get_word_frequency(text))
